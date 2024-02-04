@@ -1,0 +1,68 @@
+---
+// interface Props {
+//   title: string
+//   description: string
+//   link: string
+//   github: string
+//   image: string
+//   tags: string[]
+// }
+import NextJs from '../icons/NextJs.astro'
+import Tailwind from '../icons/Tailwind.astro'
+const TAGS = {
+  NEXT: {
+    name: 'Next.js',
+    class: 'bg-black text-white',
+    icon: NextJs
+  },
+  Tailwind: {
+    name: 'Tailwind CSS',
+    class: 'bg-[#003159] text-white',
+    icon: Tailwind
+  }
+}
+const PROJECTS = [
+  {
+    title: 'Project 1',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    link: '#',
+    github: '#',
+    image: 'https://via.placeholder.com/300x200',
+    tags: [TAGS.NEXT, TAGS.Tailwind]
+  }
+]
+---
+
+{
+  PROJECTS.map(
+    ({ title, description, tags, link, github, image }) => (
+      <article>
+        <h3 class='text-2xl font-semibold mb-2 text-yellow-200'>
+          {' '}
+          {title}
+        </h3>
+        <p class='text-lg mb-4 text-pretty'>
+          {description}
+        </p>
+        <ul class='flex gap-x-2 flex-row mb-2'>
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded-full text-xs items-center py-1 px-2 ${tag.class}`}
+              >
+                <tag.icon class='size-6' />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <img
+          class='rounded shadow-2xl shadow-white/10'
+          src={image}
+          alt={`Captura de pantalla del proyecto ${image}`}
+        />
+      </article>
+    )
+  )
+}
