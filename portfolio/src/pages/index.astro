@@ -4,10 +4,13 @@ import Badge from '../components/Badge.astro'
 import SocialPill from '../components/SocialPill.astro'
 import Proyects from '../components/Projects.astro'
 import SectionContainer from '../components/SectionContainer.astro'
+import Contacto from '../components/Contacto.astro'
+import Sobremi from '../components/Sobremi.astro'
 import Linkedin from '../icons/Linkedin.astro'
 import Github from '../icons/Github.astro'
 import Mail from '../icons/Mail.astro'
 import CodeIcon from '../icons/CodeIcon.astro'
+import UserIcon from '../icons/UserIcon.astro'
 // import Experience from '../components/Experience.astro'
 // import Briefcase from '../icons/Briefcase.astro'
 ---
@@ -82,6 +85,18 @@ import CodeIcon from '../icons/CodeIcon.astro'
         Proyectos
       </h2>
       <Proyects />
+    </SectionContainer>
+    <SectionContainer id='about'>
+      <h2
+        class='text-3xl font-semibold mb-6 flex gap-x-3 items-center'
+      >
+        <UserIcon class='size-7' />
+        Sobre mí
+      </h2>
+      <Sobremi />
+    </SectionContainer>
+    <SectionContainer id='contacto'>
+      <Contacto />
     </SectionContainer>
   </main>
 </Layout>
